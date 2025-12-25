@@ -1,0 +1,559 @@
+Stránka nenájdená<!DOCTYPE html>
+<html lang="sk">
+<head>
+<title>Reality inzercia | Bazoš.sk</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Reality inzercia zadarmo. Vyberajte z 60 005 inzerátov. Predaj ľahko a rýchlo na Bazoš.sk. Cez 400 tisíc užívateľov za deň."><meta property="og:title" content="Reality inzercia">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bazos.sk">
+<meta property="og:description" content="Reality inzercia zadarmo. Vyberajte z 60 005 inzerátov. Predaj ľahko a rýchlo na Bazoš.sk. Cez 400 tisíc užívateľov za deň.">
+<link rel="canonical" href="https://reality.bazos.sk/prenajom/byt/bratislava/"><meta property="fb:admins" content="1055875657">
+<link rel="stylesheet" href="https://www.bazos.sk/bazos66s.css" type="text/css"><link rel="preload" as="image" href="https://www.bazos.sk/obrazky/bazos.svg">
+<link rel="stylesheet" href="https://www.bazos.sk/bazosprint.css" type="text/css" media="print">
+<link rel="icon" href="https://www.bazos.sk/favicon.svg" type="image/svg+xml">
+<link rel="icon" HREF="https://www.bazos.sk/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="https://www.bazos.sk/apple-touch-icon.png">
+
+<script>
+var xhr = new XMLHttpRequest();
+var naseptavac_value = '';
+function naseptavac(value) {
+  if (value=='')  {
+  	naseptavac_value = '';
+  	document.getElementById('vysledek').innerHTML='';
+  	}
+else {
+	if (naseptavac_value == value) {
+		return false;
+	}
+	naseptavac_value = value;
+	setTimeout(function () {
+		if (naseptavac_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavac_value == value){
+				document.getElementById('vysledek').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open("POST", '/suggest.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('rubnas=RE&catnas=&qnas='+encodeURIComponent(naseptavac_value));
+	}, 250);
+}
+}
+
+var naseptavacpsc_value = '';
+function naseptavacpsc(value) {
+  if (value=='')  {
+  	naseptavacpsc_value = '';
+  	document.getElementById('vysledekpsc').innerHTML='<table cellpadding=\"3\" cellspacing=\"0\" class=\"tablenaspsc\"><tr><td class=\"act\" onclick=\"getLocation();\"><b>Inzeráty v okolí</b></td></tr></table>';
+  	}
+else {
+	if (naseptavacpsc_value == value) {
+		return false;
+	}
+	naseptavacpsc_value = value;
+	setTimeout(function () {
+		if (naseptavacpsc_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavacpsc_value == value){
+				document.getElementById('vysledekpsc').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open("POST", '/suggestpsc.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('qnaspsc='+encodeURIComponent(naseptavacpsc_value));
+	}, 250);
+}
+}
+
+function getLocation() {
+if (navigator.geolocation) {navigator.geolocation.getCurrentPosition(showPosition);}
+else {document.getElementById('hlokalita').value = '';}
+}
+function showPosition(position) {
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4){
+				document.getElementById('hlokalita').value = this.responseText;
+				document.forms['formt'].submit();
+			}
+ 		 };
+		xhr.open("POST", '/zip.php');
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('latitude='+encodeURIComponent(position.coords.latitude)+'&longitude='+encodeURIComponent(position.coords.longitude));
+}
+
+var agent_value = '';
+function agentclick() {
+  if (document.getElementById('agentmail').value=='')  {
+  	document.getElementById("agentmail").focus();
+    return false;
+  	}
+else {
+agent_value = document.getElementById('agentmail').value;
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4){
+				document.getElementById('overlay').innerHTML = this.responseText;
+			}
+  };
+xhr.open("POST", '/agent.php');
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+xhr.send('hledat=&rubrikav=RE&hlokalita=&humkreis=&cenaod=&cenado=&cat=&typ=&agentmail='+encodeURIComponent(agent_value));
+}
+}
+
+function odeslatrequest(value,params) {
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4){
+				document.getElementById('overlay').innerHTML = this.responseText;
+			}
+  };
+xhr.open("POST", value);
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+xhr.send(params);
+}
+function overlay() {
+	el = document.getElementById("overlay");
+	el.style.display = (el.style.display == "inline") ? "none" : "inline";
+}
+function odeslatakci(postaction,value1,value2,value3) {
+document.getElementById('postaction').value = postaction;
+document.getElementById("postv1").value = value1;
+document.getElementById("postv2").value = value2;
+document.getElementById("postv3").value = value3;
+document.formaction.submit();
+}
+</script>
+</head>
+
+<body>
+
+<div class="sirka">
+
+
+<div class="listalogor">
+<div class="listalogol"><a href="https://www.bazos.sk/" title="Bazos.sk - Inzercia, inzeráty"><img src="https://www.bazos.sk/obrazky/bazos.svg" width="199" height="34" alt="Bazos.sk - Inzercia, inzeráty"></a></div>
+<div class="listalogom"><b>... inzercia pre každého</b></div>
+<div class="listalogop"><a href="https://www.bazos.sk/oblubene.php"><b>Obľúbené inzeráty</b></a> <a href="https://www.bazos.sk/moje-inzeraty.php"><b>Moje inzeráty</b></a> <a href="/pridat-inzerat.php"><b><span class=pridati>Pridať inzerát</span></b></a></div>
+</div>
+<form name="formt" id="formt" method=get >
+<div class="listah">
+<div class="rubriky">
+<b>
+Čo: <span class=vysokoli><span id="vysledek"></span><input type="search" onkeyup="naseptavac(this.value);" id=hledat name=hledat size="17" maxlength="256" value="" autocomplete="off" title="Čo? Hľadaný výraz"></span>
+
+<select name="rubriky" onchange='this.form.submit();' title="Vyber rubriku">
+<option value="www">Všetky rubriky</option>
+<option value="auto">Auto</option><option value="deti">Deti</option><option value="dom">Dom a záhrada</option><option value="elektro">Elektro</option><option value="foto">Foto</option><option value="hudba">Hudba</option><option value="knihy">Knihy</option><option value="mobil">Mobily</option><option value="motocykle">Motocykle</option><option value="nabytok">Nábytok</option><option value="oblecenie">Oblečenie</option><option value="pc">PC</option><option value="praca">Práca</option><option value="reality" selected>Reality</option><option value="sluzby">Služby</option><option value="stroje">Stroje</option><option value="sport">Šport</option><option value="vstupenky">Vstupenky</option><option value="zvierata">Zvieratá</option><option value="ostatne">Ostatné</option></select>
+
+PSČ (miesto): <span class=vysokolipsc><span id="vysledekpsc"></span><input type="search" name="hlokalita" id="hlokalita" onkeyup="naseptavacpsc(this.value);" onclick="naseptavacpsc(this.value);" value="" size="5" maxlength="25" autocomplete="off" title="Kde? PSČ (miesto)" style="-webkit-appearance: none;"></span>
+Okolie: <input name="humkreis" title="Okolie v km" value="10" size="3" style="width: 25px;"> km
+Cena od: <input name=cenaod title="Cena od €" maxlength="12" size="4" value=""> - do: <input name=cenado title="Cena do €" maxlength="12" size="4" value=""> €  <input type="submit" name="Submit" value="Hľadať">
+<input type="hidden" name="order" id="order"><input type="hidden" name="crp" id="crp"><input type="hidden" id="kitx" name="kitx" value="ano"></b>
+</div>
+</div>
+</form>
+<div class="drobky"><a href=https://www.bazos.sk/>Hlavná stránka</a>  > <h1 class="nadpiskategorie">Reality</h1></div>
+<br>
+
+
+<div class="flexmain"><div class="menuleft"><div class="nadpismenu"><a href="/predam/" >Predaj</a></div>
+<div class="barvalmenu">
+<div class="barvaleva">
+<a href="/predam/byt/" >Byty</a>
+<a href="/predam/dom/" >Domy</a>
+<a href="/predam/projekty/" >Nové projekty</a>
+<a href="/predam/garaz/" >Garáže</a>
+<a href="/predam/restauracie/" >Hotely, reštaurácie</a>
+<a href="/predam/chata/" >Chalupy, Chaty</a>
+<a href="/predam/kancelar/" >Kancelárie</a>
+<a href="/predam/priestory/" >Obchodné priestory</a>
+<a href="/predam/pozemok/" >Pozemky</a>
+<a href="/predam/sklad/" >Sklady</a>
+<a href="/predam/zahrada/" >Záhrady</a>
+<a href="/predam/ostatni/" >Ostatné</a>
+</div></div>
+<br>
+
+<div class="nadpismenu"><a href="/prenajmu/" >Prenájom</a></div>
+<div class="barvalmenu">
+<div class="barvaleva">
+<a href="/prenajmu/byt/" >Byty</a>
+<a href="/prenajmu/dom/" >Domy</a>
+<a href="/prenajmu/projekty/" >Nové projekty</a>
+<a href="/prenajmu/podnajom/" >Podnájom, spolubývajúci</a>
+<a href="/prenajmu/garaz/" >Garáže</a>
+<a href="/prenajmu/restauracie/" >Hotely, reštaurácie</a>
+<a href="https://sluzby.bazos.sk/ubytovanie/">Ubytovanie</a>
+<a href="/prenajmu/kancelar/" >Kancelárie</a>
+<a href="/prenajmu/priestory/" >Obchodné priestory</a>
+<a href="/prenajmu/pozemok/" >Pozemky</a>
+<a href="/prenajmu/sklad/" >Sklady</a>
+<a href="/prenajmu/zahrada/" >Záhrady</a>
+<a href="/prenajmu/ostatni/" >Ostatné</a>
+</div></div>
+</div><div class="maincontent">
+
+
+<div class="listainzerat inzeratyflex">
+<div class="inzeratynadpis"><img src="https://www.bazos.sk/obrazky/list.gif" width="18" height="16" alt="List inzerátov" class=gallerylista> <form name="formgal" id="formgal" method="post" style="display: inline;"><input type="hidden" name="gal" value="g"><input type="image" alt="Submit" src="https://www.bazos.sk/obrazky/gallery.gif" width="18" height="16" class="gallerylist inputgal"></form> Zobrazených 1-20 inzerátov z 60 005</div>
+<div class="inzeratycena"><b><span onclick="document.getElementById('order').value=1;document.forms['formt'].submit();" class="paction">Cena</span></b></div>
+<div class="inzeratylok">Lokalita</div>
+<div class="inzeratyview"><span onclick="document.getElementById('order').value=3;document.forms['formt'].submit();" class="paction">Zobrazenie</span></div>
+</div><form name="formaction" method="post" style="display: inline;"><input type="hidden" id="postaction" name="postaction" value=""><input type="hidden" id="postv1" name="postv1" value=""><input type="hidden" id="postv2" name="postv2" value=""><input type="hidden" id="postv3" name="postv3" value=""></form><button type="button" onclick="odeslatrequest('/agent.php','teloverit=');overlay();">Nové inzeráty e-mailom</button>
+	<div id="overlay">
+     <div></div>
+</div>
+
+<div id="container_one"></div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186793168/apartman-nova-lesna-46m2-balkon-park-miesto-zariadeny.php"><img src="https://www.bazos.sk/img/1t/168/186793168.jpg?t=1766509876" class="obrazek" alt="Apartmán, Nová Lesná, 46m2 + balkón, park. miesto, zariadený" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186793168/apartman-nova-lesna-46m2-balkon-park-miesto-zariadeny.php">Apartmán, Nová Lesná, 46m2 + balkón, park. miesto, zariadený</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 3.2. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Impulz Real, s.r.o. ponúka vo výhradnom zastúpení:
+
+Kompletne zariadený, štýlový apartmán s klimatizáciou, balkónom, parkovacím miestom a pivnicou – Nová Lesná. S výhľadom na Lomnický štít.
+
+Ponúkame na predaj útulný a prakticky riešený apartmán v obci Nová Lesná, situovaný v pokojnom horskom pr ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  171 880 €</span></b></div>
+<div class="inzeratylok">Poprad<br>059 86</div>
+<div class="inzeratyview">731 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186793168');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186793168');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','21771','833158','Lucia+Talianov%C3%A1+-+Impulz+Real%2C+s.r.o.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186793168');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186791874/apartman-nova-lesna-46m2-balkon-park-miesto-zariadeny.php"><img src="https://www.bazos.sk/img/1t/874/186791874.jpg?t=1766506488" class="obrazek" alt="Apartmán, Nová Lesná, 46m2 + balkón, park. miesto, zariadený" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186791874/apartman-nova-lesna-46m2-balkon-park-miesto-zariadeny.php">Apartmán, Nová Lesná, 46m2 + balkón, park. miesto, zariadený</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 3.2. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Impulz Real, s.r.o. ponúka vo výhradnom zastúpení:
+
+Kompletne zariadený apartmán s balkónom, garážou a pivnicou – Nová Lesná. S výhľadom na Lomnický štít. 
+
+Ponúkame na predaj útulný a prakticky riešený apartmán v obci Nová Lesná, situovaný v pokojnom horskom prostredí pod Vysokými Tatrami. Nehn ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  176 890 €</span></b></div>
+<div class="inzeratylok">Poprad<br>059 86</div>
+<div class="inzeratyview">625 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186791874');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186791874');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','21771','833158','Lucia+Talianov%C3%A1+-+Impulz+Real%2C+s.r.o.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186791874');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186602588/3-izbovy-byt-po-rekonstrukcii-s-loggiou-stare-mesto.php"><img src="https://www.bazos.sk/img/1t/588/186602588.jpg?t=1766046967" class="obrazek" alt="3-izbový byt po rekonštrukcii s loggiou, Staré Mesto" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186602588/3-izbovy-byt-po-rekonstrukcii-s-loggiou-stare-mesto.php">3-izbový byt po rekonštrukcii s loggiou, Staré Mesto</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 28.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Impulz Real, s.r.o. – Lucia Talianová ponúkajú na predaj v exkluzívnom zastúpení:
+
+3-izbový byt po kompletnej rekonštrukcii – Staré Mesto, Jakobyho ulica, Košice
+
+Ponúkame na predaj kompletne zrekonštruovaný 3-izbový byt v prestížnej lokalite Starého Mesta, Košice, na Jakobyho ulici. Byt prešiel ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  269 990 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 01</div>
+<div class="inzeratyview">2632 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186602588');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186602588');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','21771','833158','Lucia+Talianov%C3%A1+-+Impulz+Real%2C+s.r.o.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186602588');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186758418/predaj-chata-ruzin-nad-bradanom-pokoj-a-cisty-vzduch.php"><img src="https://www.bazos.sk/img/1t/418/186758418.jpg?t=1766411602" class="obrazek" alt="Predaj Chata Ružín – nad Bradanom, pokoj a čistý vzduch" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186758418/predaj-chata-ruzin-nad-bradanom-pokoj-a-cisty-vzduch.php">Predaj Chata Ružín – nad Bradanom, pokoj a čistý vzduch</a></h2><span class=velikost10> - <span title="TOP 16x Platí do 28.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Pôvodná, ale udržiavaná chata na Ružíne s výhľadom na les, s pozemkom v osobnom vlastníctve, v tichom prostredí je  ideálnym miestom na oddych, relax a načerpanie novej energie v lone prírody. 
+Impulz Real, s.r.o., vo výhradnom zastúpení Ing. Peter Plačintár, +421903806237 Vám ponúka na predaj útul ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  55 000 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 15</div>
+<div class="inzeratyview">1308 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186758418');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186758418');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','1289154','837331','Peter+Pla%C4%8Dint%C3%A1r+-+Impulz+Real%2C+s.r.o.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186758418');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186758282/predaj-rodinneho-domu-medzev-kosice-okolie-pozemok-938-m.php"><img src="https://www.bazos.sk/img/1t/282/186758282.jpg?t=1766411320" class="obrazek" alt="Predaj rodinného domu, Medzev, Košice - okolie pozemok 938 m" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186758282/predaj-rodinneho-domu-medzev-kosice-okolie-pozemok-938-m.php">Predaj rodinného domu, Medzev, Košice - okolie pozemok 938 m</a></h2><span class=velikost10> - <span title="TOP 16x Platí do 28.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Hľadáte pokojné vidiecke bývanie s veľkým pozemkom a možnosťou rozšírenia bývania podľa vlastných predstáv? Objavte ponuku 2-izbového domu v Medzeve s pozemkom 938 m² — ideálne miesto pre rodinu, záhradkárov či remeselníkov. Impulz Real, s.r.o., v „EXKLUZÍVNOM“ zastúpení Ing. Peter Plačintár, +42190 ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  149 900 €</span></b></div>
+<div class="inzeratylok">Košice-okolie<br>044 25</div>
+<div class="inzeratyview">1336 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186758282');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186758282');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','1289154','837331','Peter+Pla%C4%8Dint%C3%A1r+-+Impulz+Real%2C+s.r.o.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186758282');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186625849/exkluzivne-stavebne-pozemky-vedla-novostavieb.php"><img src="https://www.bazos.sk/img/1t/849/186625849.jpg?t=1766083893" class="obrazek" alt="EXKLUZIVNE stavebné pozemky vedľa NOVOSTAVIEB" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186625849/exkluzivne-stavebne-pozemky-vedla-novostavieb.php">EXKLUZIVNE stavebné pozemky vedľa NOVOSTAVIEB</a></h2><span class=velikost10> - <span title="TOP 20x Platí do 28.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Ponúkam Vám na predaj stavebné pozemky v intraviláne mesta Veľké Kapušany.
+Pozemok sa nachádza v novovzniknutej súkromnej ulici na ul.Staničná s novou prístupovou cestou, s novými inžinierskymi sieťami kde sa v súčasnosti nachádza 6 rodinných domov.
+
+VŠEOBECNE:
+Lokalita: Veľké Kapušany , ul. Sta ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  39 500 €</span></b></div>
+<div class="inzeratylok">Michalovce<br>079 01</div>
+<div class="inzeratyview">1572 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186625849');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186625849');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5814732','4656649','Marek+-+Majite%C4%BE');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186625849');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186590593/2-izbovy-byt-51-m2-loggia-juzna-trpri-auparku.php"><img src="https://www.bazos.sk/img/1t/593/186590593.jpg?t=1765968745" class="obrazek" alt="2 izbový byt 51 m2 + loggia, Južná tr.(pri Auparku)" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186590593/2-izbovy-byt-51-m2-loggia-juzna-trpri-auparku.php">2 izbový byt 51 m2 + loggia, Južná tr.(pri Auparku)</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 28.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>2 izbový byt o výmere 51 m2 + loggia, na ul. Južná trieda(v blízkosti AUPARK), Košice - JUH, 12. poschodie, orientácia na západ s pekným výhľadom. K bytu prislúcha pivnica na prízemí bytového domu. V byte sú plastové okná, kuchynská linka so spotrebičmi a pôvodné murované jadro. Náklady na bývanie s ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  175 000 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 01</div>
+<div class="inzeratyview">2231 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186590593');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186590593');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','14758','67405','Radoslav+Koval%C4%8D%C3%ADk');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186590593');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186730104/stavebny-pozemok-liptovska-anna.php"><img src="https://www.bazos.sk/img/1t/104/186730104.jpg?t=1766334653" class="obrazek" alt="stavebný pozemok Liptovská Anna" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186730104/stavebny-pozemok-liptovska-anna.php">stavebný pozemok Liptovská Anna</a></h2><span class=velikost10> - <span title="TOP 15x Platí do 26.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>V ponuke na predaj je pozemok v obci Liptovská Anna, ktorý je územným plánom obce schválený na inžiniersko bytovú výstavbu rodinných domov na bývanie a rekreáciu. Pozemok je situovaný v peknej vidieckej časti obce s väčšími parcelami a riedkou zastavanosťou. Má rozlohu 858 metrov štvorcových. Na poz ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  84 900 €</span></b></div>
+<div class="inzeratylok">Zvolen<br>960 01</div>
+<div class="inzeratyview">496 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186730104');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186730104');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5999356','4902310','Tom%C3%A1%C5%A1+Dan%C4%8Do');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186730104');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186470759/chalupa-v-hornej-suci-dokonala-priroda-velky-pozemok-2149.php"><img src="https://www.bazos.sk/img/1t/759/186470759.jpg?t=1765702033" class="obrazek" alt="Chalupa v Hornej Súči, dokonalá príroda, veľký pozemok 2.149" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186470759/chalupa-v-hornej-suci-dokonala-priroda-velky-pozemok-2149.php">Chalupa v Hornej Súči, dokonalá príroda, veľký pozemok 2.149</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 25.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>*** VÝHĽADY NA OKOLIE, LESY A LÚKY, POLOSAMOTA ***
+
+*** 3D virtuálnu prehliadku nehnuteľnosti a všetky fotografie nájdete na našom webe LEGEND.SK *** 
+
+*** Kvôli celoročnému prístupu - nehnuteľnosť vhodná len pre vlastníkov terénneho auta SÚV - 4x4 ***
+
+EXKLUZÍVNE v predaji iba v LEGEND tradič ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  55 000 €</span></b></div>
+<div class="inzeratylok">Trenčín<br>913 33</div>
+<div class="inzeratyview">6306 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186470759');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186470759');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','15143','11196','Mari%C3%A1n+%C5%A0ulek');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186470759');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/185516793/3-izbovy-byt.php"><img src="https://www.bazos.sk/img/1t/793/185516793.jpg?t=1766577819" class="obrazek" alt="3 izbový byt" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/185516793/3-izbovy-byt.php">3 izbový byt</a></h2><span class=velikost10> - <span title="TOP 10x Platí do 24.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Predám 3 izbový byt na Štefánikovej ulici.(74m2)Byt je situovaný v bytovke medzi plavarňou Umeleckou školou a Oúp na 5 poschodí, stredný vchod.Prerobený v r 2000.
+Vchod je čistý,nový výťah, susedia príjemní.K bytu patrí aj pivnica cca 3m2
+Nábytok je v cene.Právny servis zabezpečím a zaplatím.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  145 000 €</span></b></div>
+<div class="inzeratylok">Michalovce<br>071 01</div>
+<div class="inzeratyview">261 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','185516793');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','185516793');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','3943620','4008604','Eny');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','185516793');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186808938/3-izbovy-byt-v-centre-michaloviec.php"><img src="https://www.bazos.sk/img/1t/938/186808938.jpg?t=1766577678" class="obrazek" alt="3 izbový byt v centre Michaloviec" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186808938/3-izbovy-byt-v-centre-michaloviec.php">3 izbový byt v centre Michaloviec</a></h2><span class=velikost10> - <span title="TOP 10x Platí do 24.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Predám 3 izbový tehlový byt v centre priamo na námestí nad predajňou  Fann.Byt má 76m2 Kompletná rekonštrukcia prebehla          vr 2018.Nová elektrina,plynový kotol, omietky podlaha.V cene je zahrnutý nábytok.
+K bytu patrí pivnica cca 20m2</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  165 000 €</span></b></div>
+<div class="inzeratylok">Michalovce<br>071 01</div>
+<div class="inzeratyview">275 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186808938');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186808938');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','3943620','4008604','Anna');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186808938');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186444973/2-izb-byt-balkon-53m2-bauerova-ulica-kvp-kosice-ii.php"><img src="https://www.bazos.sk/img/1t/973/186444973.jpg?t=1766593023" class="obrazek" alt="2-izb byt, balkón, 53m2, Bauerova ulica, sídlisko KVP" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186444973/2-izb-byt-balkon-53m2-bauerova-ulica-kvp-kosice-ii.php">2-izb byt, balkón, 53m2, Bauerova ulica, sídlisko KVP</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 24.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Na predaj: 2-izbový byt, Bauerova ulica, sídlisko KVP, Košice II
+
+Ponúkame na predaj priestranný 2-izbový byt v osobnom vlastníctve, 
+situovaný na Bauerovej ulici na sídlisku KVP.
+
+Byt má výmeru 50 m² + balkón 3m2 a nachádza sa na 7. z 8 poschodí.
+
+Orientácia bytu je juhozápadná, čo zabezpečuje dost ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  188 700 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 23</div>
+<div class="inzeratyview">2719 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186444973');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186444973');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','2604374','397234','ADOMIS+.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186444973');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186442701/druzicova.php"><img src="https://www.bazos.sk/img/1t/701/186442701.jpg?t=1766593023" class="obrazek" alt="Nadštandardný bezbariérový 3-izb byt, kompletná rekonštrukci" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186442701/druzicova.php">Nadštandardný bezbariérový 3-izb byt, kompletná rekonštrukci</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 24.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>NADŠTANDARDNÝ KLIMATIZOVANÝ BEZBARIÉROVÝ BYT 
+PO KOMPLETNEJ REKONŠTRUKCII, SO ZMENENOU DISPOZÍCIOU,
+
+2x kúpeľňa, 2x toaleta, 2x výstup na loggiu.   
+
+Neodchádzajte, možno ste svoje bývanie práve našli.
+
+Exkluzívne len u nás vám ponúkame krásny byt po dôkladnej rekonštrukcii, 
+aký ste možno dispozičn ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  239 000 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 12</div>
+<div class="inzeratyview">4095 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186442701');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186442701');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','2604374','397234','ADOMIS+.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186442701');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186697097/stylova-chata-v-srdci-javornik.php"><img src="https://www.bazos.sk/img/1t/097/186697097.jpg?t=1766245818" class="obrazek" alt="Štýlová chata v srdci Javorník" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186697097/stylova-chata-v-srdci-javornik.php">Štýlová chata v srdci Javorník</a></h2><span class=velikost10> - <span title="TOP 13x Platí do 23.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Hľadáte miesto, kde vypnete od ruchu mesta?
+Nech sa páči:
+Ponúkame na predaj štýlovú chalupu, kompletne zrekonštruovanú v roku 2018 v srdci Javorníkov-ideálna pre milovníkov pokoja, prírody, chalupárčenia, ale aj ako výnimočná investičná príležitosť.
+Predstavujeme Vám rodinný dom s krásnym pozemk ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">Dohodou</span></b></div>
+<div class="inzeratylok">Považská Bystrica<br>018 03</div>
+<div class="inzeratyview">1915 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186697097');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186697097');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','2583815','28123','Milica');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186697097');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186790310/15-izbovy-byt-na-prenajom.php"><img src="https://www.bazos.sk/img/1t/310/186790310.jpg?t=1766502296" class="obrazek" alt="1,5 izbový byt na prenájom" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186790310/15-izbovy-byt-na-prenajom.php">1,5 izbový byt na prenájom</a></h2><span class=velikost10> - <span title="TOP 10x Platí do 23.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Dám do prenájmu 1,5 izbový byť bez balkóna, max. 2 dospelým osobám bez detí a bez domácich zvierat. Byt sa nachádza v Košiciach na sídlisku Nad Jazerom.
+V cene nájmu sú zahrnuté všetky poplatky, energie a internet.
+Depozit vo výške 2 mesačného nájmu.</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">   500 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 12</div>
+<div class="inzeratyview">799 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186790310');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186790310');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5835793','5099206','Milan');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186790310');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186766359/predaj-rodinny-dom-pticie.php"><img src="https://www.bazos.sk/img/1t/359/186766359.jpg?t=1766430114" class="obrazek" alt="Predaj rodinný dom Ptičie" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186766359/predaj-rodinny-dom-pticie.php">Predaj rodinný dom Ptičie</a></h2><span class=velikost10> - <span title="TOP 10x Platí do 22.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Moderný nízkoenergetický rodinný dom v tichom prírodnom prostredí
+
+Ponúkame na predaj novostavbu moderného prízemného rodinného domu, situovanú v pokojnej lokalite s krásnym výhľadom na okolitú prírodu a lesy. Dom je ideálny pre tých, ktorí hľadajú súkromie, pokoj a kvalitné bývanie v nadčasovom p ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  265 000 €</span></b></div>
+<div class="inzeratylok">Humenné<br>067 41</div>
+<div class="inzeratyview">879 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186766359');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186766359');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5987183','4519003','Ivan');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186766359');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186568956/rodinny-dom-na-predaj-drazkovce.php"><img src="https://www.bazos.sk/img/1t/956/186568956.jpg?t=1765908798" class="obrazek" alt="Rodinný dom na predaj Dražkovce" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186568956/rodinny-dom-na-predaj-drazkovce.php">Rodinný dom na predaj Dražkovce</a></h2><span class=velikost10> - <span title="TOP 15x Platí do 21.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Vo výhradnom zastúpení klientov Vám realitná kancelária ForYou Reality ponúka na predaj útulný rodinný dom v Dražkovciach, len 5 minút od mesta Martin. Rodinný dom disponuje veľkorysou predsieňou z ktorej sa vstupuje do priestrannej kuchyne, obývacej izby v ktorej sa nachádza krb, spálne, kúpeľne sp ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  258 000 €</span></b></div>
+<div class="inzeratylok">Martin<br>036 01</div>
+<div class="inzeratyview">1509 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186568956');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186568956');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','2820183','1119059','Denisa+-ForYou+Reality');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186568956');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186345613/novostavba-3-izbovy-dom-rybarska-ul-ibv-pri-jazere.php"><img src="https://www.bazos.sk/img/1t/613/186345613.jpg?t=1765367901" class="obrazek" alt="NOVOSTAVBA 3 izbový dom Rybárska ul., IBV Pri jazere" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186345613/novostavba-3-izbovy-dom-rybarska-ul-ibv-pri-jazere.php">NOVOSTAVBA 3 izbový dom Rybárska ul., IBV Pri jazere</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 21.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Novostavba skolaudovaného rodinného domu vo vyhľadávanej lokalite na konci sídliska Nad Jazerom - IBV Pri Jazere, v nadštandardnom prevedení, kompletne dokončený bez kuch. linky, po zariadení nábytkom okamžite obývateľný. Dom sa nachádza na Rybárskej ulici, ktorá je málo frekventovaná a neprejazdná. ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  325 000 €</span></b></div>
+<div class="inzeratylok">Košice<br>040 01</div>
+<div class="inzeratyview">2760 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186345613');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186345613');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','14758','67405','Radoslav+Koval%C4%8D%C3%ADk');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186345613');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186341481/novacany-4-izb-novostavba-moderna-architektura-956-m2.php"><img src="https://www.bazos.sk/img/1t/481/186341481.jpg?t=1765360773" class="obrazek" alt="NOVÁČANY: 4 izb. NOVOSTAVBA. Moderná architektúra. 956 m2." width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186341481/novacany-4-izb-novostavba-moderna-architektura-956-m2.php">NOVÁČANY: 4 izb. NOVOSTAVBA. Moderná architektúra. 956 m2.</a></h2><span class=velikost10> - <span title="TOP 21x Platí do 21.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>ZARA REALITY v zastúpení ing. Rastislav Leško ponúka na predaj a možnosť bývať v MODERNEJ NOVOSTAVBE v obci NOVÁČANY
+✅ ŠTÝLOVÁ, KVALITNÁ NOVOSTAVBA len pár minút od Košíc.
+Pozemok 956 m² | Úžitková plocha 103,12 m² | Zastavaná plocha domu 125 m2 + TERASA 18 m²
+Celková zastavaná plocha: 190 m²
+Ko ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  364 800 €</span></b></div>
+<div class="inzeratylok">Košice-okolie<br>044 21</div>
+<div class="inzeratyview">1624 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186341481');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186341481');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','5679577','4477676','Rastislav+Le%C5%A1ko+-+ZARA+REALITY+s.r.o.');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186341481');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="/inzerat/186781573/rodinny-dom-s-garazou-vernar.php"><img src="https://www.bazos.sk/img/1t/573/186781573.jpg?t=1766483733" class="obrazek" alt="RODINNÝ DOM S GARÁŽOU, VERNÁR" width="170" height="128"></a>
+<h2 class=nadpis><a href="/inzerat/186781573/rodinny-dom-s-garazou-vernar.php">RODINNÝ DOM S GARÁŽOU, VERNÁR</a></h2><span class=velikost10> - <span title="TOP 8x Platí do 21.1. 2026" class="ztop">TOP</span> - [25.12. 2025]</span><br>
+<div class=popis>Ponúkam vám na predaj rodinný dom v horskej obci Vernár, okres Poprad. Ide o veľký dom s celkovým podpivničením, podkrovím (aktuálne neobývaným), so šiestimi izbami a dvomi loggiami. Nehnuteľnosť je v dobrom technickom stave, dá sa okamžite užívať alebo zrekonštruovať podľa vlastných predstáv. Verná ...</div><br><br>
+</div>
+<div class="inzeratycena"><b><span translate="no">  190 000 €</span></b></div>
+<div class="inzeratylok">Poprad<br>059 17</div>
+<div class="inzeratyview">627 x</div>
+<div class="inzeratyakce">
+<span onclick="odeslatakci('spam','186781573');return false;" class="akce paction">Označiť zlý inzerát</span> <span onclick="odeslatakci('category','186781573');return false;" class="akce paction">Chybnú kategóriu</span> <span onclick="odeslatakci('rating','4582200','58561','Krist%C3%ADna+%C4%8Cul%C3%ADkov%C3%A1');return false;" class="akce paction">Ohodnotiť užívateľa</span> <span onclick="odeslatakci('edit','186781573');return false;" class="akce paction">Zmazať/Upraviť/Topovať</span>
+</div>
+</div>
+<div id="container_two"></div><br><div class="strankovani">Stránka: <b><span class=cisla>1</span></b> <a href="/20/">2</a> <a href="/40/">3</a> <a href="/60/">4</a> <a href="/80/">5</a> <a href="/100/">6</a> <a href="/120/">7</a> <a href="/140/">8</a> <a href="/20/"><b>Ďalšia</b></a></div><br><br><br>
+
+
+</div></div><br>
+
+&copy;2025 Bazoš - <b>Inzercia, bazár </b><br>
+<a href="https://www.bazos.sk/pomoc.php">Pomoc</a>, <a href="https://www.bazos.sk/otazky.php">Otázky</a>, <a href="https://www.bazos.sk/hodnotenie.php">Hodnotenie</a>, <a href="https://www.bazos.sk/kontakt.php">Kontakt</a>, <a href="https://www.bazos.sk/reklama.php">Reklama</a>, <a href="https://www.bazos.sk/podmienky.php">Podmienky</a>, <a href="https://www.bazos.sk/ochrana-udajov.php">Ochrana údajov</a>, <a href="https://www.bazos.sk/rss.php?rub=re">RSS</a>, <form name="formvkm" id="formvkm" method="post" style="display: inline;"><input type="hidden" name="vkm" value="m"><input type="submit" class="vkm" value="Mobilná verzia"></form><br>
+
+Inzeráty Reality celkom: <b>59938</b>, za 24 hodín: <b>2225</b><br><br>
+<a href="https://www.bazos.sk/mapa-kategorie.php">Mapa kategórií</a>, <a href="https://reality.bazos.sk/mapa-search.php">Najvyhľadávanejšie výrazy</a>
+<br>
+Krajiny: <a href="https://reality.bazos.sk">Slovensko</a>, <a href="https://reality.bazos.cz">Česká republika</a>, <a href="https://nieruchomosci.bazos.pl">Poľsko</a>, <a href="https://immobilien.bazos.at">Rakúsko</a>
+<br>
+<br>
+</div>
+
+<script src="https://www.bazos.sk/cookie-consent.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"sk","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"cookie_domain": "bazos.sk"});
+});
+</script>
+<a href="#" id="open_preferences_center"> </a>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLZSNE9Z0C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HLZSNE9Z0C');
+</script>
+
+</body>
+</html>
